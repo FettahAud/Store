@@ -69,10 +69,11 @@ body {
 		grid-area: main;
 		background-color: white;
 		padding: 2rem 1rem;
-		display: flex;
-		flex-wrap: wrap;
+		display: grid;
 		overflow-y: scroll;
-		gap: clamp(1.5rem, calc(0.6818rem + 1.2121vw), 1.7rem);
+		grid-template-columns: repeat(auto-fill, minmax(200px, 250px));
+		grid-template-rows: min-content;
+		gap: 2rem;
 		&::-webkit-scrollbar {
 			display: none;
 		}
@@ -107,6 +108,13 @@ body {
 				flex-wrap: wrap;
 				padding: 0 1rem;
 				gap: 32%;
+				.first-line
+				{
+					width: 100%;
+					display: flex;
+					justify-content: space-between;
+					flex-wrap: wrap;
+				}
 				.description {
 					font-size: 0.9rem;
 					line-height: 1.4;
@@ -140,35 +148,58 @@ body {
 		.side-nav {
 			display: none;
 		}
+		.header{
+			padding: 0 .5rem 0 1rem;
+			.right{
+				display: flex;
+				.menu{
+					display: block;
+					margin-left:1rem ;
+				}
+			}
+		}
 		.products {
 			grid-area: main;
 			padding: 1rem;
 			gap: clamp(1.5rem, calc(0.6818rem + 1.2121vw), 1.7rem);
+			grid-template-columns: repeat(auto-fill, 300px);
+			justify-content: center;
 			.box {
 				width: 100%;
-				padding: 0;
-				// 		.image {
-				// 			border-radius: 15px 15px 0 0;
-				// 		}
-				// 		.info {
-				// 			padding: 0;
-				// 			.description {
-				// 				padding: 0.8rem 0;
-				// 			}
-				// 			button {
-				// 				justify-self: end;
-				// 				background-color: #ddd0;
-				// 				border-radius: 15px;
-				// 				padding: 0.5rem 1rem;
-				// 				border: 1px solid #e7a7a7;
-				// 				font-size: 0.9rem;
-				// 				cursor: pointer;
-				// 				transition: 0.2s;
-				// 				&:hover {
-				// 					background-color: #e7a7a7;
-				// 				}
-				// 			}
-				// 		}
+					.image {
+						border-radius: 15px 15px 0 0;
+					}
+					.info {
+						.description {
+							padding: 0.8rem 0;
+						}
+						button {
+							justify-self: end;
+							background-color: #ddd0;
+							border-radius: 15px;
+							padding: 0.5rem 1rem;
+							border: 1px solid #e7a7a7;
+							font-size: 0.9rem;
+							cursor: pointer;
+							transition: 0.2s;
+							&:hover {
+								background-color: #e7a7a7;
+							}
+						}
+					}
+			}
+		}
+	}
+}
+@media screen and (max-width: 658px) {
+	.container
+	{
+		.products
+		{
+			grid-template-columns: repeat(auto-fill, minmax(200px, 500px));
+			.box .info .first-line
+			{
+				padding-top: 1rem;
 			}
 		}
 	}

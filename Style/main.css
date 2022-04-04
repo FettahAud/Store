@@ -78,10 +78,11 @@ body {
   grid-area: main;
   background-color: white;
   padding: 2rem 1rem;
-  display: flex;
-  flex-wrap: wrap;
+  display: grid;
   overflow-y: scroll;
-  gap: clamp(1.5rem, calc(0.6818rem + 1.2121vw), 1.7rem);
+  grid-template-columns: repeat(auto-fill, minmax(200px, 250px));
+  grid-template-rows: min-content;
+  gap: 2rem;
 }
 
 .container .products::-webkit-scrollbar {
@@ -126,6 +127,13 @@ body {
   gap: 32%;
 }
 
+.container .products .box .info .first-line {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
 .container .products .box .info .description {
   font-size: 0.9rem;
   line-height: 1.4;
@@ -156,14 +164,53 @@ body {
   .container .side-nav {
     display: none;
   }
+  .container .header {
+    padding: 0 .5rem 0 1rem;
+  }
+  .container .header .right {
+    display: flex;
+  }
+  .container .header .right .menu {
+    display: block;
+    margin-left: 1rem;
+  }
   .container .products {
     grid-area: main;
     padding: 1rem;
     gap: clamp(1.5rem, calc(0.6818rem + 1.2121vw), 1.7rem);
+    grid-template-columns: repeat(auto-fill, 300px);
+    justify-content: center;
   }
   .container .products .box {
     width: 100%;
-    padding: 0;
+  }
+  .container .products .box .image {
+    border-radius: 15px 15px 0 0;
+  }
+  .container .products .box .info .description {
+    padding: 0.8rem 0;
+  }
+  .container .products .box .info button {
+    justify-self: end;
+    background-color: #ddd0;
+    border-radius: 15px;
+    padding: 0.5rem 1rem;
+    border: 1px solid #e7a7a7;
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: 0.2s;
+  }
+  .container .products .box .info button:hover {
+    background-color: #e7a7a7;
+  }
+}
+
+@media screen and (max-width: 658px) {
+  .container .products {
+    grid-template-columns: repeat(auto-fill, minmax(200px, 500px));
+  }
+  .container .products .box .info .first-line {
+    padding-top: 1rem;
   }
 }
 /*# sourceMappingURL=main.css.map */
