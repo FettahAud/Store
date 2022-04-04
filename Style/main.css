@@ -80,7 +80,7 @@ body {
   padding: 2rem 1rem;
   display: grid;
   overflow-y: scroll;
-  grid-template-columns: repeat(auto-fill, minmax(200px, 250px));
+  grid-template-columns: repeat(auto-fill, minmax(190px, 235px));
   grid-template-rows: min-content;
   gap: 2rem;
 }
